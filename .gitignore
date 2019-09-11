@@ -13,3 +13,5 @@
 
 env.code-workspace
 .env
+
+.idea/
