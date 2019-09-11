@@ -92,6 +92,22 @@ func IntMust(key string) int {
 	return val
 }
 
+func Int32Default(key string, daf int32) int32 {
+	val, err := strconv.Atoi(os.Getenv(key))
+	if err == nil {
+		return int32(val)
+	}
+	return daf
+}
+
+func Int32Must(key string) int32 {
+	val, err := strconv.Atoi(os.Getenv(key))
+	if err != nil {
+		panic(NotKeyError)
+	}
+	return int32(val)
+}
+
 func Int64Default(key string, daf int64) int64 {
 	val, err := strconv.ParseInt(os.Getenv(key), 10, 64)
 	if err == nil {
